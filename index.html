@@ -1,0 +1,261 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Man Tsui Tableau Web Portal</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		
+		<!-- Access the API & Load your JavaScript -->
+		<script type="text/javascript" src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+		<script type="text/javascript" src='Tableau_JS_Embed.js'></script>
+		
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+								
+				<!-- Slide 01 -->
+				<section data-background-image="img/Dashboard_Background_2.jpg">
+					<center>
+					<h2 style = "width: 1000px; background-color: dimgrey">Man Tsui Dashboard Web Portal</h2>
+					<h5 style = "width: 1000px; background-color: dimgrey">A Demonstration using Tableau with reveal.js-menu</h5>
+					
+					<p style = "width: 700px; background-color: dimgrey">
+						<small>Presentation created by <a href="https://www.linkedin.com/in/man-tsui-83840415/">Man Tsui</a> </small>
+						<br>
+						<small>reveal.js created by <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small>
+						<br>
+						<small>Hakim's original presentation <a href="http://lab.hakim.se/reveal-js/#/">here</a></small>
+						<br>
+						<small>reveal.js-menu plugin created by <a href="https://github.com/denehyg/reveal.js-menu">Greg Denehy</a> / <a href="http://twitter.com/gregdenehy">@gregdenehy</a></small>
+						<br>
+						<small>Inspired by earlier works from <a href="https://www.dataplusscience.com/deck2/index.html#/">Jeffrey A. Shaffer</a> / <a href="http://twitter.com/HighVizAbility">@HighVizAbility</a></small>
+					</p>
+					<center>
+				</section>
+				
+				<!-- Slide 02 -->
+				<section  data-menu-title="Medicare Cost Report: Hospital Statistics"> 
+					<center>
+					<div id='myCMS_Cost_Hosp_Stat_Viz'></div>
+					</center>
+				</section>
+						
+				<!-- Slide 03 -->
+				<section  data-menu-title="Tableau 3-D Scatter"> 
+					<center>				
+						<iframe src="https://mantsui.github.io/Tableau_visjs_3D_MedicareCost" width="1500" height="700"></iframe>
+					</center>
+				</section>
+						
+				<!-- Slide 04 -->
+				<section  data-menu-title="Medicare Inpatient Charge Analysis"> 
+					<center>
+					<div id='myMedicareIP01Viz'></div>
+					</center>
+				</section>
+
+				<!-- Slide 05 -->
+				<section  data-menu-title="Tableau D3 Zoomable Sunburst"> 
+					<center>
+						<iframe src="https://mantsui.github.io/Tableau_D3_Sunburst_MedicareIP" width="1500" height="700"></iframe>
+					</center>
+				</section>						
+						
+				<!-- Slide 06 -->
+				<section  data-menu-title="Medicare Outpatient Charge Analysis"> 
+					<center>
+					<div id='myMedicareOP01Viz'></div>
+					</center>
+				</section>
+
+				<!-- Slide 07 -->
+				<section  data-menu-title="Tableau D3 Zoomable Treemap"> 
+					<center>				
+						<iframe src="https://mantsui.github.io/Tableau_D3_Treemap_MedicareOP" width="1500" height="700"></iframe>
+					</center>
+				</section>						
+						
+				<!-- Slide 08 -->
+				<section  data-menu-title="Medicare IP OP Payments by Hospital"> 
+					<center>
+					<div id='myIPOP_Pay_Hospital'></div>
+					</center>
+				</section>						
+
+				<!-- Slide 09 -->
+				<section  data-menu-title="Tableau D3 Chord Diagram"> 
+					<center>				
+						<iframe src="https://mantsui.github.io/Tableau_D3_Chord_Diagram_Superstore" width="1500" height="700"></iframe>
+					</center>
+				</section>
+
+				<!-- Slide 10 -->
+				<section  data-menu-title="Tableau D3 Tree Layout"> 
+					<center>				
+						<iframe src="https://mantsui.github.io/Tableau_D3_TreeLayout_Sample" width="1500" height="700"></iframe>
+					</center>
+				</section>				
+						
+				<!-- Slide 11 -->
+				<section  data-menu-title="Sample Tableau D3 with Superstore (Not fully intergrated)"> 
+					<center>
+					<div id='mySuperStore_D3'></div>
+					</center>
+				</section>						
+
+				<!-- Slide 12 -->
+				<section  data-menu-title="Sacramento Police Dispatch Analysis">
+					<center>
+					<div id='mySacPoliceDispatchViz'></div>
+					</center>
+				</section>
+				
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				
+				// Transition style
+				transition: 'convex', // none/fade/slide/convex/concave/zoom
+				
+				width: '100%',
+    				height: '100%',
+				
+				// Loop the presentation
+				loop: true,
+
+				// Number of milliseconds between automatically proceeding to the
+				// next slide, disabled when set to 0, this value can be overwritten
+				// by using a data-autoslide attribute on your slides
+				autoSlide: 5000,
+
+				// Stop auto-sliding after user input
+				autoSlideStoppable: false,
+
+				// Use this method for navigation when auto-sliding
+				autoSlideMethod: Reveal.navigateNext,				
+				
+				menu: {
+					// Specifies which side of the presentation the menu will 
+					// be shown. Use 'left' or 'right'.
+					side: 'left',
+
+					// Add slide numbers to the titles in the slide list.
+					// Use 'true' or format string (same as reveal.js slide numbers)
+					numbers: false,
+
+					// Specifies which slide elements will be used for generating
+					// the slide titles in the menu. The default selects the first
+					// heading element found in the slide, but you can specify any
+					// valid css selector and the text from the first matching
+					// element will be used.
+					// Note: that a section data-menu-title attribute or an element
+					// with a menu-title class will take precedence over this option
+					titleSelector: 'h1, h2, h3, h4, h5, h6',
+
+					// If slides do not have a matching title, attempt to use the
+					// start of the text content as the title instead
+					useTextContentForMissingTitles: false,
+
+					// Hide slides from the menu that do not have a title.
+					// Set to 'true' to only list slides with titles.
+					hideMissingTitles: false,
+
+					// Add markers to the slide titles to indicate the 
+					// progress through the presentation
+					markers: false,
+
+					// Specify custom panels to be included in the menu, by
+					// providing an array of objects with 'title', 'icon'
+					// properties, and either a 'src' or 'content' property.
+					custom: false,
+
+					// Specifies the themes that will be available in the themes
+					// menu panel. Set to 'false' to hide themes panel.
+					themes: [
+						{ name: 'Black', theme: 'css/theme/black.css' },
+						{ name: 'White', theme: 'css/theme/white.css' },
+						{ name: 'League', theme: 'css/theme/league.css' },
+						{ name: 'Sky', theme: 'css/theme/sky.css' },
+						{ name: 'Beige', theme: 'css/theme/beige.css' },
+						{ name: 'Simple', theme: 'css/theme/simple.css' },
+						{ name: 'Serif', theme: 'css/theme/serif.css' },
+						{ name: 'Blood', theme: 'css/theme/blood.css' },
+						{ name: 'Night', theme: 'css/theme/night.css' },
+						{ name: 'Moon', theme: 'css/theme/moon.css' },
+						{ name: 'Solarized', theme: 'css/theme/solarized.css' }
+					],
+					themes: false,
+
+					// Specifies if the transitions menu panel will be shown.
+					transitions: true,
+
+					// Adds a menu button to the slides to open the menu panel.
+					// Set to 'false' to hide the button.
+					openButton: true,
+
+					// If 'true' allows the slide number in the presentation to
+					// open the menu panel. The reveal.js slideNumber option must 
+					// be displayed for this to take effect
+					openSlideNumber: false,
+
+					// If true allows the user to open and navigate the menu using
+					// the keyboard. Standard keyboard interaction with reveal
+					// will be disabled while the menu is open.
+					keyboard: true,
+
+					// Normally the menu will close on user actions such as
+					// selecting a menu item, or clicking the presentation area.
+					// If 'true', the sticky option will leave the menu open
+					// until it is explicitly closed, that is, using the close
+					// button or pressing the ESC or m key (when the keyboard 
+					// interaction option is enabled).
+					sticky: false,
+
+					// If 'true' standard menu items will be automatically opened
+					// when navigating using the keyboard. Note: this only takes 
+					// effect when both the 'keyboard' and 'sticky' options are enabled.
+					autoOpen: true,
+
+					// If 'true' the menu will not be created until it is explicitly
+					// requested by calling RevealMenu.init(). Note this will delay
+					// the creation of all menu panels, including custom panels, and
+					// the menu button.
+					delayInit: false
+				},
+								
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/menu/menu.js' },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
