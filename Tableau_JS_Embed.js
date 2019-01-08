@@ -1,10 +1,10 @@
 // Initialize the viz variable 
-var vizCMS_Cost_Hosp_Stat,CMZ02, vizMedicareIP01, vizMedicareOP01, vizSacPoliceDispatch, vizIPOP_Pay_Hospital, vizSuperStore_D3, CMZ08, CMZ09;
+var CMZ01,CMZ02, CMZ03, CMZ04, CMZ05, CMZ06, CMZ07, CMZ08, CMZ09;
 
 window.onload= function() {
 // When the webpage has loaded, load the viz
 
-	var placeholder01 = document.getElementById('myCMS_Cost_Hosp_Stat_Viz');
+	var placeholder01 = document.getElementById('miDashboard01');
 	var vizURL01 = 'http://rfplogisticatableau.brazilsouth.cloudapp.azure.com/views/CMZ/DashboardAgendamientoDomicilio?:embed=y&:display_count=no&:showAppBanner=false&:showShareOptions=true&:showVizHome=no';
 	var options01 = {
 	    
@@ -15,7 +15,7 @@ window.onload= function() {
 		
 	};
 
-	vizCMS_Cost_Hosp_Stat = new tableau.Viz(placeholder01, vizURL01, options01);
+	CMZ01 = new tableau.Viz(placeholder01, vizURL01, options01);
 
 	
 	// inicio placeholder02
@@ -24,7 +24,7 @@ window.onload= function() {
 	var options02 = {
 	    
 		width: '100%',
-		height: '800px',
+		height: '1000px',
 		hideToolbar: true,
 		hideTabs: true,
 		
@@ -37,66 +37,66 @@ window.onload= function() {
 	
 	
 //fin de modificaciones	
-	var placeholder03 = document.getElementById('myMedicareIP01Viz');
+	var placeholder03 = document.getElementById('miDashboard03');
 	var vizURL03 = 'http://rfplogisticatableau.brazilsouth.cloudapp.azure.com/views/CMZ/DashboardVoucherRecepcion?:embed=y&:display_count=no&:showAppBanner=false&:showShareOptions=true&:showVizHome=no';
 	var options03 = {
-	    width: '1280px',
-		height: '720px',
+	    width: '100%',
+		height: '1000px',
 		hideToolbar: true,
 		hideTabs: true
 	};
 
-	vizMedicareIP01 = new tableau.Viz(placeholder03, vizURL03, options03);
+	CMZ03 = new tableau.Viz(placeholder03, vizURL03, options03);
 
 	// Listen for filter change/selection for "Medicare Inpatient Charge Analysis 01"
 
 	
-	var placeholder04 = document.getElementById('myMedicareOP01Viz');
+	var placeholder04 = document.getElementById('miDashboard04');
 	var vizURL04 = 'http://rfplogisticatableau.brazilsouth.cloudapp.azure.com/views/CMZ/DashboardCambiodeUbicaciones?:embed=y&:display_count=no&:showAppBanner=false&:showShareOptions=true&:showVizHome=no';
 	var options04 = {
-		width: '1280px',
-		height: '720px',
+		width: '100%',
+		height: '1000px',
 		hideToolbar: true,
 		hideTabs: true
 	};
 
-	vizMedicareOP01 = new tableau.Viz(placeholder04, vizURL04, options04);
+	CMZ04 = new tableau.Viz(placeholder04, vizURL04, options04);
 
 	
 	
-	var placeholder05 = document.getElementById('myIPOP_Pay_Hospital');
+	var placeholder05 = document.getElementById('miDashboard05');
 	var vizURL05 = 'http://rfplogisticatableau.brazilsouth.cloudapp.azure.com/views/CMZ/DashboardControlCumplimientoPlanificacion?:embed=y&:display_count=no&:showAppBanner=false&:showShareOptions=true&:showVizHome=no';
 	var options05 = {
-		width: '1280px',
-		height: '720px',
+		width: '100%',
+		height: '1000px',
 		hideToolbar: true,
 		hideTabs: true
 	};
 
-	vizIPOP_Pay_Hospital = new tableau.Viz(placeholder05, vizURL05, options05);	
+	CMZ06 = new tableau.Viz(placeholder05, vizURL05, options05);	
 
-	var placeholder06 = document.getElementById('mySuperStore_D3');
+	var placeholder06 = document.getElementById('miDashboard06');
 	var vizURL06 = 'http://rfplogisticatableau.brazilsouth.cloudapp.azure.com/views/CMZ/DashboardCD?:embed=y&:display_count=no&:showAppBanner=false&:showShareOptions=true&:showVizHome=no';
 	var options06 = {
-		width: '1280px',
-		height: '720px',
+		width: '100%',
+		height: '1000px',
 		hideToolbar: true,
 		hideTabs: true
 	};
 
-	vizSuperStore_D3 = new tableau.Viz(placeholder06, vizURL06, options06);	
+	CMZ07 = new tableau.Viz(placeholder06, vizURL06, options06);	
 
 	
 	var placeholder15 = document.getElementById('mySacPoliceDispatchViz');
 	var vizURL15 = 'http://rfplogisticatableau.brazilsouth.cloudapp.azure.com/views/CMZ/DashboardRankingCD?:embed=y&:display_count=no&:showAppBanner=false&:showShareOptions=true&:showVizHome=no';
 	var options15 = {
-		width: '1280px',
-		height: '720px',
+		width: '100%',
+		height: '1000px',
 		hideToolbar: true,
 		hideTabs: true
 	};
 
-	vizSacPoliceDispatch = new tableau.Viz(placeholder15, vizURL15, options15);
+	CMZ05 = new tableau.Viz(placeholder15, vizURL15, options15);
 	
 	
 	
@@ -105,7 +105,7 @@ window.onload= function() {
 	var options08 = {
 	    
 		width: '100%',
-		height: '720px',
+		height: '1000px',
 		hideToolbar: true,
 		hideTabs: true,
 		
@@ -120,7 +120,7 @@ window.onload= function() {
 	var options09 = {
 	    
 		width: '100%',
-		height: '720px',
+		height: '1000px',
 		hideToolbar: true,
 		hideTabs: true,
 		
@@ -141,18 +141,18 @@ function setFilterTo(vizName, sheetName, filterName, values) {
 
 
 //function switchView(sheetName) {
-//	var workbook = vizMedicareOP01.getWorkbook();
+//	var workbook = CMZ04.getWorkbook();
 //	workbook.activateSheetAsync(sheetName);
 //}
 
 // Filter the specified dimension to the specified value(s)
 //function show(filterName, values) {
-//	var sheet = vizMedicareOP01.getWorkbook().getActiveSheet();
+//	var sheet = CMZ04.getWorkbook().getActiveSheet();
 //	sheet.applyFilterAsync(filterName, values, tableau.FilterUpdateType.REPLACE);
 //}
 
 // Select the marks that have the specified value(s) for the specified dimension
 //function selectMarks(filterName, values) {
-//	var sheet = vizMedicareOP01.getWorkbook().getActiveSheet();
+//	var sheet = CMZ04.getWorkbook().getActiveSheet();
 //	sheet.selectMarksAsync(filterName, values, tableau.FilterUpdateType.REPLACE);
 //}
