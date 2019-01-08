@@ -5,12 +5,14 @@ window.onload= function() {
 // When the webpage has loaded, load the viz
 
 	var placeholder01 = document.getElementById('myCMS_Cost_Hosp_Stat_Viz');
-	var vizURL01 = 'http://rfplogisticatableau.brazilsouth.cloudapp.azure.com/views/CMZ/DashboardCambiodeUbicaciones?:embed=y&:showAppBanner=false&:showShareOptions=true&:display_count=no&:showVizHome=no';
+	var vizURL01 = 'http://rfplogisticatableau.brazilsouth.cloudapp.azure.com/views/CMZ/DashboardAgendamientoDomicilio?:embed=y&:display_count=no&:showAppBanner=false&:showShareOptions=true&:showVizHome=no';
 	var options01 = {
-	    width: '1366px',
-		height: '768px',
+	    
+		width: '100%',
+		height: '720px',
 		hideToolbar: true,
-		hideTabs: true
+		hideTabs: true,
+		
 	};
 
 	vizCMS_Cost_Hosp_Stat = new tableau.Viz(placeholder01, vizURL01, options01);
@@ -42,7 +44,23 @@ window.onload= function() {
 		});
 	});
 	
+	// inicio placeholder02
+	var placeholder02 = document.getElementById('miDashboard02');
+	var vizURL02 = 'http://rfplogisticatableau.brazilsouth.cloudapp.azure.com/views/CMZ/DashboardAgendamientoDomicilio?:embed=y&:display_count=no&:showAppBanner=false&:showShareOptions=true&:showVizHome=no';
+	var options02 = {
+	    
+		width: '100%',
+		height: '720px',
+		hideToolbar: true,
+		hideTabs: true,
+		
+	};
+// fin placeholder02
+
 	
+	
+	
+//fin de modificaciones	
 	var placeholder03 = document.getElementById('myMedicareIP01Viz');
 	var vizURL03 = 'http://rfplogisticatableau.brazilsouth.cloudapp.azure.com/views/Activacion/GestionActivadores?:embed=y&:showAppBanner=false&:showShareOptions=true&:display_count=no&:showVizHome=no';
 	var options03 = {
