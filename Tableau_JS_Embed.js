@@ -1,5 +1,5 @@
 // Initialize the viz variable 
-var vizCMS_Cost_Hosp_Stat, vizMedicareIP01, vizMedicareOP01, vizSacPoliceDispatch, vizIPOP_Pay_Hospital, vizSuperStore_D3;
+var vizCMS_Cost_Hosp_Stat,CMZ02, vizMedicareIP01, vizMedicareOP01, vizSacPoliceDispatch, vizIPOP_Pay_Hospital, vizSuperStore_D3, CMZ08, CMZ09;
 
 window.onload= function() {
 // When the webpage has loaded, load the viz
@@ -9,7 +9,7 @@ window.onload= function() {
 	var options01 = {
 	    
 		width: '100%',
-		height: '720px',
+		height: '1000px',
 		hideToolbar: true,
 		hideTabs: true,
 		
@@ -17,44 +17,20 @@ window.onload= function() {
 
 	vizCMS_Cost_Hosp_Stat = new tableau.Viz(placeholder01, vizURL01, options01);
 
-	// Listen for filter change/selection for "Medicare Cost Report Hospital Statistics"
-	vizCMS_Cost_Hosp_Stat.addEventListener('filterchange', function(filterEvent) {
-
-		//console.log('Event Listener Activated.'); //Debug code
-
-		var arrayFilterList = [];
-		filterEvent.getFilterAsync().then( function(field){
-			var field_name = field.getFieldName();
-			var field_type = field.getFilterType();
-			if (field_name == "State") {
-				var data_values = field.getAppliedValues();
-				for (i = 0; i < data_values.length; i++) {
-					var selectedFilterSingle = data_values[i].value;
-					
-					// Array manipulation: Concatenate multiple filter values into the array
-					arrayFilterList.push(selectedFilterSingle);
-				}
-				
-				// Cross-filter: Apply "Provider State" filter criteria to "Medicare Outpatient Charge Analysis 01"
-				setFilterTo(vizMedicareOP01, 'OP Map', 'Provider State', arrayFilterList);
-				// Cross-filter: Apply "Provider State" filter criteria to "Medicare Inpatient Charge Analysis 01"
-				setFilterTo(vizMedicareIP01, 'IP Map', 'Provider State', arrayFilterList);
-			}
-			console.log(arrayFilterList);
-		});
-	});
 	
 	// inicio placeholder02
 	var placeholder02 = document.getElementById('miDashboard02');
-	var vizURL02 = 'http://rfplogisticatableau.brazilsouth.cloudapp.azure.com/views/CMZ/DashboardAgendamientoDomicilio?:embed=y&:display_count=no&:showAppBanner=false&:showShareOptions=true&:showVizHome=no';
+	var vizURL02 = 'http://rfplogisticatableau.brazilsouth.cloudapp.azure.com/views/CMZ/DashboardVoucherDespacho?:embed=y&:display_count=no&:showAppBanner=false&:showShareOptions=true&:showVizHome=no';
 	var options02 = {
 	    
 		width: '100%',
-		height: '720px',
+		height: '800px',
 		hideToolbar: true,
 		hideTabs: true,
 		
 	};
+	
+	CMZ02 = new tableau.Viz(placeholder02, vizURL02, options02);
 // fin placeholder02
 
 	
@@ -62,7 +38,7 @@ window.onload= function() {
 	
 //fin de modificaciones	
 	var placeholder03 = document.getElementById('myMedicareIP01Viz');
-	var vizURL03 = 'http://rfplogisticatableau.brazilsouth.cloudapp.azure.com/views/Activacion/GestionActivadores?:embed=y&:showAppBanner=false&:showShareOptions=true&:display_count=no&:showVizHome=no';
+	var vizURL03 = 'http://rfplogisticatableau.brazilsouth.cloudapp.azure.com/views/CMZ/DashboardVoucherRecepcion?:embed=y&:display_count=no&:showAppBanner=false&:showShareOptions=true&:showVizHome=no';
 	var options03 = {
 	    width: '1280px',
 		height: '720px',
@@ -73,35 +49,10 @@ window.onload= function() {
 	vizMedicareIP01 = new tableau.Viz(placeholder03, vizURL03, options03);
 
 	// Listen for filter change/selection for "Medicare Inpatient Charge Analysis 01"
-	vizMedicareIP01.addEventListener('filterchange', function(filterEvent) {
 
-		//console.log('Event Listener Activated.'); //Debug code
-
-		var arrayFilterList = [];
-		filterEvent.getFilterAsync().then( function(field){
-			var field_name = field.getFieldName();
-			var field_type = field.getFilterType();
-			if (field_name == "Provider State") {
-				var data_values = field.getAppliedValues();
-				for (i = 0; i < data_values.length; i++) {
-					var selectedFilterSingle = data_values[i].value;
-					
-					// Array manipulation: Concatenate multiple filter values into the array
-					arrayFilterList.push(selectedFilterSingle);
-				}
-				
-				// Cross-filter: Apply "State" filter criteria to "Medicare Cost Report: Hospital Statistics"
-				// with single mark or multiple marks
-				setFilterTo(vizCMS_Cost_Hosp_Stat, 'Hosp Stat Map', 'State', arrayFilterList);
-				// Cross-filter: Apply "Provider State" filter criteria to "Medicare Outpatient Charge Analysis 01"
-				setFilterTo(vizMedicareOP01, 'OP Map', 'Provider State', arrayFilterList);
-			}
-			console.log(arrayFilterList);
-		});
-	});
 	
 	var placeholder04 = document.getElementById('myMedicareOP01Viz');
-	var vizURL04 = 'https://public.tableau.com/views/MedicareChargeProject_0/OPChargeDashboard';
+	var vizURL04 = 'http://rfplogisticatableau.brazilsouth.cloudapp.azure.com/views/CMZ/DashboardCambiodeUbicaciones?:embed=y&:display_count=no&:showAppBanner=false&:showShareOptions=true&:showVizHome=no';
 	var options04 = {
 		width: '1280px',
 		height: '720px',
@@ -111,37 +62,10 @@ window.onload= function() {
 
 	vizMedicareOP01 = new tableau.Viz(placeholder04, vizURL04, options04);
 
-	// Listen for filter change/selection for "Medicare Outpatient Charge Analysis 01"
-	vizMedicareOP01.addEventListener('filterchange', function(filterEvent) {
-
-		//console.log('Event Listener Activated.'); //Debug code
-
-		var arrayFilterList = [];
-		filterEvent.getFilterAsync().then( function(field){
-			var field_name = field.getFieldName();
-			var field_type = field.getFilterType();
-			if (field_name == "Provider State") {
-				var data_values = field.getAppliedValues();
-				for (i = 0; i < data_values.length; i++) {
-					var selectedFilterSingle = data_values[i].value;
-					
-					// Array manipulation: Concatenate multiple filter values into the array
-					arrayFilterList.push(selectedFilterSingle);
-				}
-
-				// Cross-filter: Apply "State" filter criteria to "Medicare Cost Report: Hospital Statistics"
-				// with single mark or multiple marks
-				setFilterTo(vizCMS_Cost_Hosp_Stat, 'Hosp Stat Map', 'State', arrayFilterList);
-				// Cross-filter: Apply "Provider State" filter criteria to "Medicare Inpatient Charge Analysis 01"
-				setFilterTo(vizMedicareIP01, 'IP Map', 'Provider State', arrayFilterList);
-			}
-			console.log(arrayFilterList);
-
-		});
-	});
+	
 	
 	var placeholder05 = document.getElementById('myIPOP_Pay_Hospital');
-	var vizURL05 = 'https://public.tableau.com/views/MedicareChargeProject_0/IPOPPaymentDashboard';
+	var vizURL05 = 'http://rfplogisticatableau.brazilsouth.cloudapp.azure.com/views/CMZ/DashboardControlCumplimientoPlanificacion?:embed=y&:display_count=no&:showAppBanner=false&:showShareOptions=true&:showVizHome=no';
 	var options05 = {
 		width: '1280px',
 		height: '720px',
@@ -152,7 +76,7 @@ window.onload= function() {
 	vizIPOP_Pay_Hospital = new tableau.Viz(placeholder05, vizURL05, options05);	
 
 	var placeholder06 = document.getElementById('mySuperStore_D3');
-	var vizURL06 = 'https://public.tableau.com/views/SampleDashboardSuperstore/DashboardSuperstoreD3';
+	var vizURL06 = 'http://rfplogisticatableau.brazilsouth.cloudapp.azure.com/views/CMZ/DashboardCD?:embed=y&:display_count=no&:showAppBanner=false&:showShareOptions=true&:showVizHome=no';
 	var options06 = {
 		width: '1280px',
 		height: '720px',
@@ -164,7 +88,7 @@ window.onload= function() {
 
 	
 	var placeholder15 = document.getElementById('mySacPoliceDispatchViz');
-	var vizURL15 = 'https://public.tableau.com/views/SacPoliceDispatchDashboard/SacramentoPoliceDispatchAnalysis';
+	var vizURL15 = 'http://rfplogisticatableau.brazilsouth.cloudapp.azure.com/views/CMZ/DashboardRankingCD?:embed=y&:display_count=no&:showAppBanner=false&:showShareOptions=true&:showVizHome=no';
 	var options15 = {
 		width: '1280px',
 		height: '720px',
@@ -173,6 +97,38 @@ window.onload= function() {
 	};
 
 	vizSacPoliceDispatch = new tableau.Viz(placeholder15, vizURL15, options15);
+	
+	
+	
+		var placeholder08 = document.getElementById('miDashboard08');
+	var vizURL08 = 'http://rfplogisticatableau.brazilsouth.cloudapp.azure.com/views/CMZ/DasboardCumplimientoCD?:embed=y&:display_count=no&:showAppBanner=false&:showShareOptions=true&:showVizHome=no';
+	var options08 = {
+	    
+		width: '100%',
+		height: '720px',
+		hideToolbar: true,
+		hideTabs: true,
+		
+	};
+	
+	CMZ08 = new tableau.Viz(placeholder08, vizURL08, options08);
+	
+	
+	//
+	var placeholder09 = document.getElementById('miDashboard09');
+	var vizURL09 = 'http://rfplogisticatableau.brazilsouth.cloudapp.azure.com/views/CMZ/CompaiaMineraZaldivar?:embed=y&:display_count=no&:showAppBanner=false&:showShareOptions=true&:showVizHome=no';
+	var options09 = {
+	    
+		width: '100%',
+		height: '720px',
+		hideToolbar: true,
+		hideTabs: true,
+		
+	};
+	
+	CMZ09 = new tableau.Viz(placeholder09, vizURL09, options09);
+	
+	
 
 };
 
