@@ -6,12 +6,14 @@ window.onload= function() {
 
 	var placeholder01 = document.getElementById('miDashboard01');
 	var vizURL01 = 'http://rfplogisticatableau.brazilsouth.cloudapp.azure.com/views/CMZ/DashboardAgendamientoDomicilio?:embed=y&:display_count=no&:showAppBanner=false&:showShareOptions=true&:showVizHome=no';
+	
+	
 	var options01 = {
 	    
 		width: '100%',
 		height: '1000px',
 		hideToolbar: true,
-		hideTabs: true,
+		hideTabs: true
 		
 	};
 
@@ -23,10 +25,10 @@ window.onload= function() {
 	var vizURL02 = 'http://rfplogisticatableau.brazilsouth.cloudapp.azure.com/views/CMZ/DashboardVoucherDespacho?:embed=y&:display_count=no&:showAppBanner=false&:showShareOptions=true&:showVizHome=no';
 	var options02 = {
 	    
-		width: '100%',
+		 width: '100%',
 		height: '1000px',
 		hideToolbar: true,
-		hideTabs: true,
+		hideTabs: true
 		
 	};
 	
@@ -48,9 +50,7 @@ window.onload= function() {
 
 	CMZ03 = new tableau.Viz(placeholder03, vizURL03, options03);
 
-	// Listen for filter change/selection for "Medicare Inpatient Charge Analysis 01"
-
-	
+		
 	var placeholder04 = document.getElementById('miDashboard04');
 	var vizURL04 = 'http://rfplogisticatableau.brazilsouth.cloudapp.azure.com/views/CMZ/DashboardCambiodeUbicaciones?:embed=y&:display_count=no&:showAppBanner=false&:showShareOptions=true&:showVizHome=no';
 	var options04 = {
@@ -139,20 +139,3 @@ function setFilterTo(vizName, sheetName, filterName, values) {
     sheet.applyFilterAsync(filterName, values, tableau.FilterUpdateType.REPLACE); 
 }
 
-
-//function switchView(sheetName) {
-//	var workbook = CMZ04.getWorkbook();
-//	workbook.activateSheetAsync(sheetName);
-//}
-
-// Filter the specified dimension to the specified value(s)
-//function show(filterName, values) {
-//	var sheet = CMZ04.getWorkbook().getActiveSheet();
-//	sheet.applyFilterAsync(filterName, values, tableau.FilterUpdateType.REPLACE);
-//}
-
-// Select the marks that have the specified value(s) for the specified dimension
-//function selectMarks(filterName, values) {
-//	var sheet = CMZ04.getWorkbook().getActiveSheet();
-//	sheet.selectMarksAsync(filterName, values, tableau.FilterUpdateType.REPLACE);
-//}
