@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		
 
 		<title>RFP - Logistica Tableau Web Portal</title>
 
@@ -24,6 +25,7 @@
 		<!-- Access the API & Load your JavaScript -->
 		<script type="text/javascript" src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
 		<script type="text/javascript" src='Tableau_JS_Embed.js'></script>
+		<link href="css/bootstrap.min.css" rel="stylesheet">
 	
 	</head>
 	<body>
@@ -31,12 +33,16 @@
 			<div class="slides">
 					<!-- soy un comentario 09-01-2019 16:47 -->			
 				<!-- Slide 01 -->
-				<section data-background-image="img/Dashboard_Background_2.jpg">
+				<section data-background-image="img/Dashboard_Background_2.jpg" >
 					<center>
-					<h2 style = "width: 1000px; background-color: dimgrey">Dashboard Tableau Web Portal</h2>
-					<h5 style = "width: 1000px; background-color: dimgrey">Compañia Minera Zaldivar</h5>
+					<h2 style = "width: 100%; background-color: dimgrey">Dashboard Tableau Web Portal</h2>
+					<h5 style = "width: 100%; background-color: dimgrey">Compañia Minera Zaldivar</h5>
 					
-					<p style = "width: 700px; background-color: dimgrey">
+					
+					
+					<p style = "width: 100%;height:1000px; background-color: dimgrey;padding: 25px;" >
+					<img   src="img/Slider11.jpg" align="left" style="border:0;width:600px;height:400px;vertical-align:middle;float:left;"></img> 
+					
 						<small>Portal Web RFP - logistica <a href="http://www.rfp-logistica.cl/" target="_blank">Portal</a> </small>
 						<br>
 						<small>reveal.js created by <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small>
@@ -51,18 +57,24 @@
 				</section>
 				
 				<!-- Slide 02 -->
-				<section data-background-image="img/Dashboard_Background_2.jpg"  data-menu-title="CMZ - Dashboard Agendamiento Domicilio"> 
+				<section data-background-image="img/Dashboard_Background_2.jpg"  data-menu-title="CMZ - Dashboard Agendamiento Domicilio"  > 
 					
 					<center>
-					<p style = "background-color: dimgrey" >Compañia Minera Zaldivar - Dashboard Agendamiento Domicilio</p>
+					<!--<img   src="img/logo.png" align="left" style="border:0;width:150px;height:75px;vertical-align:top;float:left;padding: 25px;"></img> -->
+					
+					
+					<h4 style = "background-color: dimgrey;width: 100%;" > <img   src="img/logo.png" align="left" style="border:0;width:12%;height:6%;"></img>  Compañia Minera Zaldivar - Dashboard Agendamiento Domicilio</h4>
 					<div  id='miDashboard01'></div>
 					</center>
 				</section>
 						
 				<!-- Slide 03 -->
 				<section data-background-image="img/Dashboard_Background_2.jpg"  data-menu-title="CMZ - Dashboard Voucher Despacho"> 
-					<p style = "background-color: dimgrey" >Compañia Minera Zaldivar - Dashboard Voucher Despacho</p>
+				
+					
 					<center>
+					<!--<img   src="img/logo.png" align="left" style="border:0;width:150px;height:75px;vertical-align:middle;float:left;"></img> -->
+					<h4 style = "background-color: none;position: relative;background-color: dimgrey;" ><img   src="img/logo.png" align="left" style="border:0;width:12%;height:6%;"></img>Compañia Minera Zaldivar - Dashboard Voucher Despacho</h4>
 					
 					<div id='miDashboard02'></div>
 					</center>
@@ -143,9 +155,16 @@
 				transition: 'convex', // none/fade/slide/convex/concave/zoom
 				
 				width: '100%',
-    				height: '100%',
+    			height: '100%',
 				
 				// Loop the presentation
+				
+				//margen: 0, 
+				//minScale: 1, 
+				//maxScale: 1
+				
+				
+				
 				loop: true,
 
 				// Number of milliseconds between automatically proceeding to the
@@ -256,6 +275,8 @@
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 				]
 			});
+			
+
 		</script>
 	</body>
 </html>
